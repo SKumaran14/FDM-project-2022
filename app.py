@@ -23,7 +23,7 @@ def predict():
     output = prediction[0]
 
     #return render_template('index.html', prediction_text='Diagnosis {}'.format(output))
-    return render_template('index.html', prediction_text='< label > < h2 > < u > Diagnosis < / u > < / h2 > < h3 > M = > Malignant < / br > B = > Benign < / h3 > Diagnosis = {} < / label >'.format(output))
+    return render_template('index.html', prediction_text= < label > < h2 > < u > Diagnosis < / u > < / h2 > < h3 > M = > Malignant < / br > B = > Benign < / h3 > 'Diagnosis = {}' < / label >.format(output))
 
 
 if __name__ == "__main__":
