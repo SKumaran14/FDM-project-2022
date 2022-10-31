@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction</title>
+    <style>
+            * {
+              box-sizing: border-box;
+            }
+
+            input[type=text]{
+              width: 30%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              resize: vertical;
+            }
+
+            label {
+              padding: 12px 12px 12px 0;
+              display: inline-block;
+            }
+
+            input[type=submit] {
+              background-color: #04AA6D;
+              color: white;
+              padding: 12px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              float: none;
+            }
+
+            input[type=submit]:hover {
+              background-color: #45a049;
+            }
+
+            .container {
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+            }
+
+            .col-25 {
+              float: left;
+              width: 15%;
+              margin-top: 6px;
+            }
+
+            .col-75 {
+              float: left;
+              width: 85%;
+              margin-top: 6px;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+    </style>
+</head>
+
+<body>
+ <div class="container" >
+	<center><h1>Breast Cancer Prediction</h1></center>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <div style="padding-left: 20%">
+            <form action="{{ url_for('predict')}}"method="post">
+                <div class="row">
+                    <div class="col-25">
+                        <label> radius_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="radius_mean" placeholder="radius_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> texture_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="texture_mean" placeholder="texture_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> perimeter_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="perimeter_mean" placeholder="perimeter_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> area_mean:</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="area_mean" placeholder="area_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> smoothness_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="smoothness_mean" placeholder="smoothness_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> compactness_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="compactness_mean" placeholder="compactness_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> concavity_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="concavity_mean" placeholder="concavity_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> concave points_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="concave points_mean" placeholder="concave points_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> symmetry_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="symmetry_mean" placeholder="symmetry_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label> fractal_dimension_mean: </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="fractal_dimension_mean" placeholder="fractal_dimension_mean" required="required" />
+                    </div>
+                </div>
+                <div class="row" style="padding-left: 30%; padding-top: 2%">
+                    <input type="submit" value="Predict" />
+                </div>
+            </form>
+         {{ prediction_text }}
+         </div>
+
+ </div>
+
+
+</body>
+</html>
